@@ -199,9 +199,9 @@ def set_pwm_values_at_bbb(dist_to_travel, speed):
     #define BBB IO pins for the motor drive PWM
     #check is ECAP PWM pins are avalible
     drive_owl = "P8_13"  # set the PWM pin for drive the outer wheels left side!!! only if the dimension front and rear equal!!!
-    drive_mwl = 'P9_42'  # set the PWM pin for drive the mid wheel left side
+    #drive_mwl = 'P9_42'  # set the PWM pin for drive the mid wheel left side
     drive_owr = "P8_19"  # set the PWM pin for drive the outer wheels right side!!! only if the dimension front and rear equal!!!
-    drive_mwr = 'P9_28'  # set the PWM pin for drive the mid wheel right side
+    #drive_mwr = 'P9_28'  # set the PWM pin for drive the mid wheel right side
 
     # min and max values for the servo's
     duty_min = 2  # set the min PWM percent -> value come from manual tests of the servos
@@ -232,9 +232,9 @@ def set_pwm_values_at_bbb(dist_to_travel, speed):
 
     #set the drive speed to zero for outer and mid wheels
     PWM.start(drive_owl, 0, 200)
-    PWM.start(drive_mwl, 0, 200)
+    #PWM.start(drive_mwl, 0, 200)
     PWM.start(drive_owr, 0, 200)
-    PWM.start(drive_mwr, 0, 200)
+    #PWM.start(drive_mwr, 0, 200)
 
     # start of steering duty cycle calculation of BBB PWM
 
@@ -278,9 +278,9 @@ def set_pwm_values_at_bbb(dist_to_travel, speed):
         print(rover_Drive['drive_direction'])
 
     PWM.set_duty_cycle(drive_owl, rover_Drive['FLW'][1])
-    PWM.set_duty_cycle(drive_mwl, rover_Drive['MLW'][1])
+    #PWM.set_duty_cycle(drive_mwl, rover_Drive['MLW'][1])
     PWM.set_duty_cycle(drive_owr, rover_Drive['FRW'][1])
-    PWM.set_duty_cycle(drive_mwr, rover_Drive['MRW'][1])
+    #PWM.set_duty_cycle(drive_mwr, rover_Drive['MRW'][1])
 
     #TODO calculate the distance to time until the encoder section for the midwheels are not implemented in hardware
     # times must be set to the appropriate value on the hardware base
@@ -306,9 +306,9 @@ def set_pwm_values_at_bbb(dist_to_travel, speed):
     PWM.stop(steer_frw)
     PWM.stop(steer_rrw)
     PWM.stop(drive_owl)
-    PWM.stop(drive_mwl)
+    #PWM.stop(drive_mwl)
     PWM.stop(drive_owr)
-    PWM.stop(drive_mwr)
+    #PWM.stop(drive_mwr)
     PWM.cleanup()
     GPIO.cleanup() 
 
