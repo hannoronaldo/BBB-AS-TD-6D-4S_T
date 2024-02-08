@@ -16,12 +16,12 @@ The Ackermann steering method is used to avoid push or drag wheels in curve driv
 ![Concept of Ackerman Steering](/description/IMG/prinzip_of_steering_calculation.png)
 
 There are 6 drive motors and 4 steering servo motors involved.
-On each side we have a front wheel with a steering servo, a mid wheel and a back wheel also with a steering servo.
-The drive motor get a dedicated speed depended from the steering angle. 
+On each side we have a front wheel with a steering servo, a mid-wheel and a back wheel also with a steering servo.
+The drive motor get a dedicated speed depended on from the steering angle. 
 
 ![Calculation of the Steering values](/description/IMG/calculation_of_steering_and_speed.png)
 
-The drive motor speed is also depended from the steering angle and the position of the motor in the chassis.
+The drive motor speed is also depended on from the steering angle and the position of the motor in the chassis.
 This is the function call structure:
 
 ![Function call structure](/description/IMG/function_calls.png)

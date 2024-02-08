@@ -14,5 +14,5 @@ Task:
 - [x] set_pwm_values_at_bbb() -> use the content of the rover_drive{} dict to set the duty cycle for the PWM
 - [ ] TODO define a function for calculate the traveled distance to set a timer for the given duty cycle (25% dc = x seconds= x cm of driving) like that
 - [ ] TODO implement a distance measurement module, when the rotary encoder are installed in hardware
-- [ ] refactor the drive class a s aproper Python module
+- [ ] refactor the drive class as a proper Python module
 - [ ] x
