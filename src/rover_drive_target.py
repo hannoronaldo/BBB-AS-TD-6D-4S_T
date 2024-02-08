@@ -172,13 +172,14 @@ def cal_steering_and_speed(speed, cor):
 
 # __________________________
 
-def set_pwm_values_at_bbb(dist_to_travel):
+def set_pwm_values_at_bbb(dist_to_travel, speed):
     """
     set_pwm_values_at_bbb ->
     set up the PWM values for steering and motor speed for each wheel direct at BBB
     the values are stored in the dictionary -> rover_Drive{}
     the function call the Adafruit_BBIO classes and there methods
-    : param dist_to_travel -> int vaule in mm length
+    : param dist_to_travel -> int value in mm length
+    : param speed -> int value in %
     :return: none
     """
     # calculate the BBB conform steering and motor drive values
@@ -283,10 +284,12 @@ def set_pwm_values_at_bbb(dist_to_travel):
 
     #TODO calculate the distance to time until the encoder section for the midwheels are not implemented in hardware
     # times must be set to the appropriate value on the hardware base
-    # take the wheel diameter multiply with PI to get the circumctance and 
+    # take the wheel diameter multiply with PI to get the circumstance and
     # divide then the distance that will be hand over as parameter -> dist_to_travel
-    wheel_cir = pi * wheel_diameter
-    time.sleep(1)
+    wheel_cir = math.pi * wheel_diameter
+    #wheel_rotations = dist_to_travel / wheel_cir
+    run_time = wheel_cir / speed
+    time.sleep(run_time)
 
     #set the servos to the neutral position
     PWM.set_duty_cycle(steer_flw, scv_flw)
@@ -369,7 +372,7 @@ def ackermann_steering(inp_tuple):
     # calculate the steering and motor speed values
     cal_steering_and_speed(speed, cor)
     # set up the PWM values in BBB
-    set_pwm_values_at_bbb(dist_to_travel)
+    set_pwm_values_at_bbb(dist_to_travel, speed)
 # __________________________
 
 
